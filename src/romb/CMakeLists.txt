@@ -1,1 +1,1 @@
-add_library(lib  STATIC Romb.cpp)
+add_library(romb romb.cpp)

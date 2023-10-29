@@ -1,15 +1,16 @@
+#include "romb.h"
 #include <iostream>
 #include <cstring>
-#include "romb.h"
 
-Romb::Romb(int latura, char* culoare) {
+
+Romb::Romb(int latura, const char* culoare) {
     this->latura = latura;
-    this->culoare = new char[strlen(culoare) + 3];
+    this->culoare = new char[strlen(culoare) + 1];
     strcpy(this->culoare, culoare);
 }
 
-Romb::Romb() {
-    cout<<"Destructor executed!"<<endl;
+Romb::~Romb() {
+    std::cout<<"Destructor executed!"<<std::endl;
     delete[] culoare;
 }
 int Romb::perimetru() {
@@ -21,15 +22,15 @@ char* Romb::getCuloare() {
 }
 
 Romb::Romb(const Romb &copy) {
-    cout<<"Copy constructor executed!"<<endl;
+    std::cout<<"Copy constructor executed!"<<std::endl;
     this->latura = copy.latura;
     this->culoare = new char[strlen(copy.culoare) + 1];
-    strcpy(this->culoare, culoare);
+    strcpy(this->culoare, copy.culoare);
     
 }
 
 Romb::Romb(Romb &&move) {
-    cout<<"Move constructor executed!"<<endl;
+    std::cout<<"Move constructor executed!"<<std::endl;
     this->latura = move.latura;
     this->culoare = new char[strlen(move.culoare) + 1];
     strcpy(this->culoare, move.culoare);
@@ -37,4 +38,3 @@ Romb::Romb(Romb &&move) {
     move.latura = 0;
     strcpy(move.culoare, " ");
 }
-
