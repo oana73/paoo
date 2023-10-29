@@ -38,3 +38,9 @@ Romb::Romb(Romb &&move) {
     move.latura = 0;
     strcpy(move.culoare, " ");
 }
+
+void Romb::SetCuloare(const char* culoare){
+    delete[] this->culoare;
+    this->culoare = new char[strlen(culoare) + 1];
+    strcpy(this->culoare, culoare);
+    }
