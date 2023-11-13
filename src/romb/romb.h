@@ -16,7 +16,7 @@ class Romb  : public Figura{
         Romb& operator=(const Romb &&move);
         Romb();
         void SetCuloare(const char* culoare);
-	    void afiseaza() const override;
+	void afiseaza() const override;
         int perimetru() const override;
 };
 class Triunghi : public Figura{
