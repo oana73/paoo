@@ -5,10 +5,10 @@ class Figura{
     virtual int perimetru() const = 0;
     };
 class Romb  : public Figura{
-    private: int latura;
-             char* culoare;
+    protected: int latura;
+               char* culoare;
     public: 
-        Romb(int latura, const char* culoare);
+        Romb(const char* culoare, int latura);
         Romb(const Romb& copy);
         Romb(Romb&& move);
         ~Romb();
@@ -30,3 +30,14 @@ class Triunghi : public Figura{
         void afiseaza() const override;
         int perimetru() const override;
         };
+        
+ class Romb3D : public Romb{
+ 	private: int d1;
+ 		 int d2;
+ 	
+ 	public: 
+ 	Romb3D(const char* culoare,int latura,int d1, int d2);
+ 	void afiseaza() const override;
+ 	void SetCuloare(const char* culoare);
+ 	int volum();
+ };
